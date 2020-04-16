@@ -13,3 +13,4 @@ test_sudoku = [
 ]
 
 print_sudoku(test_sudoku)
+print(find_empty(test_sudoku))
