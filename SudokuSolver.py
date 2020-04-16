@@ -58,6 +58,7 @@ def solve_sudoku(sudoku):
         if check_validity(sudoku, num_to_be_entered, (row, col)):
             sudoku[row][col] = num_to_be_entered
 
+            # checking recursively
             if solve_sudoku(sudoku):
                 return True
             sudoku[row][col] = 0
