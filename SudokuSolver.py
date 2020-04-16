@@ -1,16 +1,3 @@
-test_sudoku = [
-    [7, 8, 0, 4, 0, 0, 1, 2, 0],
-    [6, 0, 0, 0, 7, 5, 0, 0, 9],
-    [0, 0, 0, 6, 0, 1, 0, 7, 8],
-    [0, 0, 7, 0, 4, 0, 2, 6, 0],
-    [0, 0, 1, 0, 5, 0, 9, 3, 0],
-    [9, 0, 4, 0, 6, 0, 0, 0, 5],
-    [0, 7, 0, 3, 0, 0, 0, 1, 2],
-    [1, 2, 0, 0, 0, 7, 4, 0, 0],
-    [0, 4, 9, 2, 0, 6, 0, 0, 7]
-]
-
-
 # This function prints above list of lists in a sudoku format.
 def print_sudoku(sudoku):
     for i_row in range(len(sudoku)):
@@ -26,6 +13,7 @@ def print_sudoku(sudoku):
                 print(" " + str(sudoku[i_row][i_col]) + " ", end='')
 
 
+# Returns the tuple of (row, column) of the first empty position it finds.
 def find_empty(sudoku):
     for i_row in range(len(sudoku)):
         for i_col in range(len(sudoku[i_row])):
@@ -33,3 +21,26 @@ def find_empty(sudoku):
                 return i_row, i_col   # row, col
 
     return None
+
+
+# Checks if the number to be validated is currently valid at the given position.
+def check_validity(sudoku, num_to_be_validated, position):
+    # check for num to be validated in the row of position tuple
+    for i_col in range(len(sudoku[0])):
+        if sudoku[position[0]][i_col] == num_to_be_validated and position[1] != i_col:
+            return False
+
+    # check for num to be validated in the column of position tuple
+    for i_row in range(len(sudoku)):
+        if sudoku[i_row][position[1]] == num_to_be_validated and position[0] != i_row:
+            return False
+
+    # check for num to be validated in a 3x3 box of position tuple
+    box_row = position[0] // 3
+    box_col = position[1] // 3
+    for i_row in range(box_row*3, box_row*3 + 3):
+        for i_col in range(box_col*3, box_col*3 + 3):
+            if sudoku[i_row][i_col] == num_to_be_validated and (i_row, i_col) != position:
+                return False
+
+    return True
