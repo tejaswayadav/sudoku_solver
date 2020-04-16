@@ -44,3 +44,21 @@ def check_validity(sudoku, num_to_be_validated, position):
                 return False
 
     return True
+
+
+# Solves sudoku by using above methods
+def solve_sudoku(sudoku):
+    find = find_empty(sudoku)
+    if not find:
+        return True
+    else:
+        row, col = find
+
+    for num_to_be_entered in range(1, 10):
+        if check_validity(sudoku, num_to_be_entered, (row, col)):
+            sudoku[row][col] = num_to_be_entered
+
+            if solve_sudoku(sudoku):
+                return True
+            sudoku[row][col] = 0
+    return False
