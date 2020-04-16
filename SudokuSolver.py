@@ -24,3 +24,12 @@ def print_sudoku(sudoku):
                 print(" " + str(sudoku[i_row][i_col]))
             else:
                 print(" " + str(sudoku[i_row][i_col]) + " ", end='')
+
+
+def find_empty(sudoku):
+    for i_row in range(len(sudoku)):
+        for i_col in range(len(sudoku[i_row])):
+            if sudoku[i_row][i_col] == 0:
+                return i_row, i_col   # row, col
+
+    return None
