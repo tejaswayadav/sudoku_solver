@@ -2,7 +2,9 @@
 This a generic Sudoku solver created in Python programming language.
 I've created this project while learning Backtracking Algorithm in python programming language.
 
-## Functions
+## Module: SudokuSolver
+Uses lists and basic python functionality to solve a Sudoku. 
+### Functions
 #### function `print_sudoku(sudoku=list(list()))`
 This function prints a list of lists into a specified sudoku format.
 
@@ -14,3 +16,9 @@ Checks if the number to be validated is currently valid at the given position by
 
 #### function `solve_sudoku(list(list()))`
 This function solves the sudoku using the above functions. It uses recursion and backtracking algorithm to solve the puzzle.
+
+## Module: SudokuSolver
+Uses Pandas Library and basic python functionality to solve a Sudoku.
+
+#### function `get_solved_sudoku(list(list()))`
+Solves a Sudoku using pandas library.
