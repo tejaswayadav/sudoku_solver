@@ -4,17 +4,21 @@ import pandas as pd
 def get_solved_sudoku(sudoku):
     data_frame = pd.DataFrame(sudoku)
     solve(data_frame)
+    print("-------------------------------")
     for row in data_frame.index:
         if row % 3 == 0 and row != 0:
-            print("---------|---------|---------")
+            print("|---------|---------|---------|")
 
         for col in data_frame.columns:
             if col % 3 == 0 and col != 0:
                 print("|", end='')
+            if col == 0:
+                print("|", end="")
             if col == 8:
-                print(" " + str(data_frame.at[row, col]))
+                print(" " + str(data_frame.at[row, col]), end=" |\n")
             else:
                 print(" " + str(data_frame.at[row, col]) + " ", end='')
+    print("-------------------------------")
 
 
 def find_empty(frame):

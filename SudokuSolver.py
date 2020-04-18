@@ -1,16 +1,20 @@
 # This function prints above list of lists in a sudoku format.
 def print_sudoku(sudoku):
+    print("-------------------------------")
     for i_row in range(len(sudoku)):
         if i_row % 3 == 0 and i_row != 0:
-            print("---------|---------|---------")
+            print("|---------|---------|---------|")
 
         for i_col in range(len(sudoku[i_row])):
             if i_col % 3 == 0 and i_col != 0:
                 print("|", end='')
+            if i_col == 0:
+                print("|", end="")
             if i_col == 8:
-                print(" " + str(sudoku[i_row][i_col]))
+                print(" " + str(sudoku[i_row][i_col]), end=" |\n")
             else:
                 print(" " + str(sudoku[i_row][i_col]) + " ", end='')
+    print("-------------------------------")
 
 
 # Returns the tuple of (row, column) of the first empty position it finds.
