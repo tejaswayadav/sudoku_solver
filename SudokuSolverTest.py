@@ -1,4 +1,6 @@
-from SudokuSolver import *
+import SudokuSolver
+import SudokuSolverAlt
+
 
 test_sudoku = [
     [7, 8, 0, 4, 0, 0, 1, 2, 0],
@@ -25,13 +27,10 @@ test_sudoku_alt = [
     [0, 0, 0, 0, 0, 8, 6, 0, 0]
 ]
 
-# print_sudoku(test_sudoku)
-# print(find_empty(test_sudoku))
-# print(check_validity(test_sudoku, 6, find_empty(test_sudoku)))
+SudokuSolver.solve_sudoku(test_sudoku)
+SudokuSolver.print_sudoku(test_sudoku)
 
-print_sudoku(test_sudoku_alt)
-print("---------------------------------------")
-solve_sudoku(test_sudoku_alt)
-print("---------------------------------------")
-print_sudoku(test_sudoku_alt)
+print("<=================================>")
+
+SudokuSolverAlt.get_solved_sudoku(test_sudoku)
 
