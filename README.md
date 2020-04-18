@@ -17,7 +17,7 @@ Checks if the number to be validated is currently valid at the given position by
 #### function `solve_sudoku(list(list()))`
 This function solves the sudoku using the above functions. It uses recursion and backtracking algorithm to solve the puzzle.
 
-## Module: SudokuSolver
+## Module: SudokuSolverAlt
 Uses Pandas Library and basic python functionality to solve a Sudoku.
 
 #### function `get_solved_sudoku(list(list()))`
