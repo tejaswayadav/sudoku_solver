@@ -44,9 +44,10 @@ def check_validity(frame, num, pos):
     block_of_row = pos[0] // 3
     block_of_col = pos[1] // 3
     block = frame.iloc[block_of_row * 3:block_of_row * 3 + 3, block_of_col * 3:block_of_col * 3 + 3]
-    for i, j in zip(block.index, block.columns):
-        if block.at[i, j] == num and pos != (i, j):
-            return False
+    for i in block.index:
+        for j in block.columns:
+            if block.at[i, j] == num and pos != (i, j):
+                return False
 
     return True
 
